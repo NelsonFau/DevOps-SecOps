@@ -1,0 +1,10 @@
+title = "DevSecOps Gitleaks Config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "sacramento-api-token"
+description = "Detecta tokens internos de Sacramento Software"
+regex = '''SACRAMENTO-[A-Za-z0-9]{32}'''
+tags = ["token", "internal", "sacramento"]
