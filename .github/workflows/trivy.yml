@@ -1,0 +1,28 @@
+name: Container Scanning - Trivy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  container-scan:
+    name: Container Scanning (Trivy)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan nginx image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: nginx:latest
+          scanners: vuln
+          format: table
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: '1'
