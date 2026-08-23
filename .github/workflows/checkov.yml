@@ -1,0 +1,31 @@
+name: IaC Security - Checkov
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "checkov-lab/**"
+      - ".github/workflows/checkov.yml"
+
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "checkov-lab/**"
+      - ".github/workflows/checkov.yml"
+
+jobs:
+  iac-security:
+    name: IaC Security (Checkov)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Install Checkov
+        run: pip install checkov==3.3.13
+
+      - name: Run Checkov
+        run: checkov -d checkov-lab --framework terraform --compact
