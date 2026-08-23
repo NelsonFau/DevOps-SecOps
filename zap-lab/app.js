@@ -1,7 +1,9 @@
 const express = require("express");
 const helmet = require("helmet");
 
-const app = express();
+// CSRF no aplica en este laboratorio: solo hay endpoints GET,
+// sin autenticación por cookies ni operaciones que modifiquen estado.
+const app = express(); // nosemgrep: javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
 
 app.disable("x-powered-by");
 
