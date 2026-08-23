@@ -36,11 +36,11 @@ resource "aws_security_group" "app" {
   description = "Security group para aplicacion"
   
 ingress {
-  description = "Configuracion insegura para probar pipeline"
-  from_port   = 0
-  to_port     = 65535
+  description = "Permitir trafico de la aplicacion"
+  from_port   = 8080
+  to_port     = 8080
   protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = ["10.0.0.0/16"]
 }
 
   egress {
