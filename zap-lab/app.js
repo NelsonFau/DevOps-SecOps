@@ -7,28 +7,28 @@ const app = express(); // nosemgrep: javascript.express.security.audit.express-c
 
 app.disable("x-powered-by");
 
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      useDefaults: false,
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'"],
-        imgSrc: ["'self'"],
-        fontSrc: ["'self'"],
-        objectSrc: ["'none'"],
-        baseUri: ["'self'"],
-        formAction: ["'self'"],
-        frameAncestors: ["'none'"]
-      }
-    },
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: {
+//       useDefaults: false,
+//       directives: {
+//         defaultSrc: ["'self'"],
+//         scriptSrc: ["'self'"],
+//         styleSrc: ["'self'"],
+//         imgSrc: ["'self'"],
+//         fontSrc: ["'self'"],
+//         objectSrc: ["'none'"],
+//         baseUri: ["'self'"],
+//         formAction: ["'self'"],
+//         frameAncestors: ["'none'"]
+//       }
+//     },
 
-    crossOriginEmbedderPolicy: {
-      policy: "require-corp"
-    }
-  })
-);
+//     crossOriginEmbedderPolicy: {
+//       policy: "require-corp"
+//     }
+//   })
+// );
 
 app.use((req, res, next) => {
   res.setHeader(
