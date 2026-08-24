@@ -1,7 +1,11 @@
 dependabot-lab/node_modules/
+
 # OWASP ZAP Lab
 zap-lab/node_modules/
 zap-lab/zap-report*.html
 zap-lab/zap.yaml
 zap-lab/*.log
 zap-lab/*.pid
+
+# AWS Secrets Manager Lab
+secrets-manager-lab/node_modules/
